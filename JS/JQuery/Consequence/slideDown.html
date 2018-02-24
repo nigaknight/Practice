@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script type="text/javascript" src="http://ajax.microsoft.com/ajax/jquery/jquery-1.4.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $(".flip").click(function(){
+                $(".panel").slideDown();
+            });
+        });
+    </script>
+    <style>
+        div.panel,p.flip{
+            margin:0px;
+            padding:5px;
+            text-align:"center";
+            background: #24ad24;
+            border:solid 1px #c72274;
+        }
+        div.panel{
+            height:120px;
+            display:none;
+        }
+    </style>
+</head>
+<body>
+    <div class="panel">
+        <p>第一个slideDown程序</p>
+        <p>第一个html和JavaScript一起使用的程序</p>
+    </div>
+    <p class="flip">点击向下滑动</p>
+</body>
+</html>

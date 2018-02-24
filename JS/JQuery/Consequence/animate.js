@@ -1,0 +1,39 @@
+//动画语法
+$(selector).animate({params},speed,callback);
+//第一个例子
+$("button").click(function(){
+    $("div").animate({
+        left:'250px'
+    });
+});
+//第二个例子
+$("button").click(function(){
+    $("div").animate({
+        left:'250px',
+        opacity:'0.5',
+        height:'150px',
+        width:'150px'
+    });
+});
+//第三个例子
+$(button).click(function(){
+    $("div").animate({
+        left:'250px',
+        height:'+=150px',
+        width:'+=150px'
+    });
+});
+//第四个例子
+$(button).click(function(){
+    $("div").animate({
+        height:'toggle'
+    });
+});
+//第五个例子（队列功能）
+$(button).click(function(){
+    var div=$("div");
+    div.animate({height:'300px',opacity:'0.8'},'slow');
+    div.animate({width:"100px",opacity:'0.4'},'slow');
+    div.animate({height:'300px',opacity:'0.8'},'slow');
+    div.animate({width:"100px",opacity:"0.4"},"slow");
+})

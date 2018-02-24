@@ -1,0 +1,18 @@
+//隐藏
+$("#hide").click(function(){
+    $("p").hide();
+});
+//显示
+$("#show").click(function(){
+    $("p").show();
+});
+//隐藏语法
+$(selector).hide(speed,callback);
+//显示语法
+$(selector).show(speed,callback);
+//切换隐藏和显示
+$("button").click(function(){
+    $("p").toggle();
+});
+//切换隐藏和显示的语法
+$(selector).toggle(speed,callback);

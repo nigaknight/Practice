@@ -1,0 +1,16 @@
+//获取文本
+$("button").click(function(){
+    alert("Text:"+$("#test").text());
+})
+//获取网址
+$("button").click(function(){
+    alert("Html:"+$("#test").html());
+})
+//获取输入字段的值
+$("button").click(function(){
+    alert("Val:"+$("#w3c").val());
+})
+//获取属性值
+$("button").click(function(){
+    alert($("#w3c").attr("herf"));
+})
