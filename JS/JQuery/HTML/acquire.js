@@ -1,3 +1,4 @@
+//text(),html(),val(),attr()四个方法
 //获取文本
 $("button").click(function(){
     alert("Text:"+$("#test").text());
@@ -10,7 +11,7 @@ $("button").click(function(){
 $("button").click(function(){
     alert("Val:"+$("#w3c").val());
 })
-//获取属性值
+//获取属性值，和其他三个不同，attr()里面要加上需要获取何种属性
 $("button").click(function(){
     alert($("#w3c").attr("herf"));
 })
