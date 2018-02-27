@@ -15,5 +15,11 @@ print(line.get_linewidth())
 # 方法二：pyplot的getp()方法
 print(plt.getp(lines[0], "color"))
 print(plt.getp(lines[1]))
+# 获取当前图像的属性  pyplot的gcf()方法
+f = plt.gcf()
+print(plt.getp(f))
+# 获取当前图像的子图 1、对象的axes属性 2、pyplot的gca()方法
+print("the result of axes:", plt.getp(f, "axes"))
+print("the result of gca:", plt.gca())
 plt.legend()
 plt.show()
