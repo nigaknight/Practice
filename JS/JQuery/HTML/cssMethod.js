@@ -1,0 +1,12 @@
+//返回css属性
+$(selector).css("propertyname");
+$("div").css("background-color");
+//设置css属性
+$(selector).css("propertyname","value");
+$("div").css("background-color","yellow");
+//设置多个css属性
+$(selector).css({"propertyname":"value","propertyname":"value"});
+$("div").css({
+    "background-color":"yellow",
+    "font-size":"200%"
+});
