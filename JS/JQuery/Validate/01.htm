@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>W3Cschool教程(w3cschool.cn)</title>
+    <script src="http://libs.cdnjs.net/jquery/2.2.1/jquery.js"></script>
+    <script src="http://libs.cdnjs.net/jquery-validate/1.14.0/jquery.validate.min.js"></script>
+    <script src="http://libs.cdnjs.net/jquery-validate/1.14.0/localization/messages_zh.js"></script>
+    <script>
+        //$.表示调用的方法是ajax，用于异步操作；
+        //$("abc") 这一类的是查找标签。（）里面的是条件。
+        //validator是validate方法执行过后建立的对象，setDefaults是修改validate的默认设置
+        $.validator.setDefaults({
+        //sumbitHandler是添加提交后的操作
+            submitHandler: function () {
+                alert("提交事件!");
+            }
+        });
+        $().ready(function () {
+            $("#commentForm").validate(
+                {
+                    //debug表示调试方式，提交之后网页不会跳转
+                    debug:true
+                }
+            );
+        });
+    </script>
+    <style>
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <!--form构建表单，fieldset会画一个框，和legend配合使用，legend会设置这个框的标题-->
+    <form class="cmxform" id="commentForm" method="get" action="http://www.baidu.com">
+        <fieldset>
+            <legend>输入您的名字，邮箱，URL，备注。</legend>
+            <p>
+                <label for="cname">Name (必需, 最小两个字母)</label>
+                <input id="cname" name="name" minlength="2" type="text" required>
+            </p>
+            <p>
+                <label for="cemail">E-Mail (必需)</label>
+                <input id="cemail" type="email" name="email" required>
+            </p>
+            <p>
+                <label for="curl">URL (可选)</label>
+                <input id="curl" type="url" name="url">
+            </p>
+            <p>
+                <label for="ccomment">备注 (必需)</label>
+                <textarea id="ccomment" name="comment" required></textarea>
+            </p>
+            <p>
+                <input class="submit" type="submit" value="Submit">
+            </p>
+        </fieldset>
+    </form>
+</body>
+
+</html>
