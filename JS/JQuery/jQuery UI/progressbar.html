@@ -10,14 +10,20 @@
     <link rel="stylesheet" href="jqueryui/style.css">
     <script>
         $(function(){
-            $("#elem").progressbar( {value:22});
-        }
-        )
+            $.widget("custom.progressbar", {
+                _create: function () {
+                    var progress = this.options.value + "%";
+                    this.element
+                        .addClass("progressbar")
+                        .text(progress);
+                }
+            });
+
+        })
     </script>
 </head>
 
 <body>
-    <div id="elem"></div>
 </body>
 
 </html>
