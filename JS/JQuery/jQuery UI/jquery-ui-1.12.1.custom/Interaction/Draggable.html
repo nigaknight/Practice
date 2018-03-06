@@ -1,0 +1,49 @@
+<!doctype html>
+<!-- HTML 的 lang 属性可用于声明网页或部分网页的语言。这对搜索引擎和浏览器是有帮助的。
+根据 W3C 推荐标准，您应该通过 <html>标签中的 lang 属性对每张页面中的主要语言进行声明 -->
+<html lang="en">
+
+<head>
+<!-- <meta> 标签是 HTML 语言头部的一个辅助性标签，提供有关页面的元信息（比如：针对搜索引擎和更新频度的描述和关键词、定义页面使用的语言），使用好<meta> 标签对 HTML 很有益。 -->
+<!-- <meta> 标签中的 charset 属性用来规定HTML文档应该使用哪种字符编码 -->
+    <meta charset="utf-8">
+<!-- name 属性定义了HTML文档的描述、关键词和作者，对应于 content 属性 -->
+<!-- 在HTML5中，name的属性新增了viewport、format-detection等,viewport能优化移动浏览器的显示（屏幕的缩放） -->
+<!-- width viewport的宽度，initial-scale [数值] 初始化比例（范围从 > 0 到 10） -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>jQuery UI Draggable - Default functionality</title>
+<!-- <link> 标签定义文档与外部资源的关系。<link> 标签最常见的用途是链接样式表。rel定义当前文档与被链接文档之间的关系。
+href定义被链接文档的位置。 -->
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="https:/resources/demos/style.css">
+    <style>
+        #draggable {
+            width: 150px;
+            height: 150px;
+            padding: 0.5em;
+        }
+    </style>
+<!-- <script> 标签用于定义客户端脚本， 比如 JavaScript。 < script > 元素既可包含脚本语句， 也可以通过 "src"属性指向外部脚本文件。 -->
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+        $(function () {
+            $("#draggable").draggable({
+                // 阻止ui-draggable样式（表示是否在拖动状态）被添加
+                addClass:false,
+                appendTo:"body"
+            });
+        });
+    </script>
+</head>
+
+<body>
+
+    <div id="draggable" class="ui-widget-content">
+        <p>Drag me around</p>
+    </div>
+
+
+</body>
+
+</html>
