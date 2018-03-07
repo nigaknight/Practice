@@ -31,16 +31,61 @@ href定义被链接文档的位置。 -->
             $("#draggable").draggable({
                 // 阻止ui-draggable样式（表示是否在拖动状态）被添加
                 addClass:false,
-                appendTo:"body"
+                //设置helper元素附属在哪个元素上面?
+                appendTo:".test2",
+                //拖动时引入一个helper元素，设置为"clone"时，拖动时添加一个复制元素
+                    //helper:"clone",
+                //设置只能在x轴拖动
+                    //axis:"x",
+                //防止从指定元素开始拖动。
+                    //cancel:".test2",
+                //使用指定的类选项初始化可拖动，更改ui-draggable类的主题？
+                    //classes:{"ui-draggable":"highlight"},
+                //？
+                    //connectToSortable: "#my-sortable",
+                //拖动到指定元素或区域的范围内的约束条件？
+                    //containment:".test",
+                //设定拖动的时候的光标形状
+                cursor: "crosshair",
+                //设定拖动的时候的光标的位置
+                cursorAt: { left: 5 },
+                //设定拖动前需要的鼠标停留时间
+                delay:300,
+                //使拖动无效
+                disabled:false,
+                //设定拖动需要反应的最小拖动距离
+                distance:10,
+                //将拖动范围网格化
+                grid:[50,20],
+                //只有在某些子元素上拖动才有效
+                handle:"p",
+                //?
+                    //iframeFix:false,
+                //拖动过程中的透明度
+                opacity:0.35,
+                //?
+                    //refreshPositions
+                //设定拖动后是否回到原位
+                revert:true,
+                //设定拖动后回到原位的时间
+                revertDuration:2000,
+                //将一系列拖动组合起来
+                    //scope:"tasks",
+                //容器在拖动时自动滚动，默认开启
+                    //scroll:false,
+                
             });
         });
     </script>
 </head>
 
 <body>
-
+    <p class="test">test</p>
+    <div class="test2">
     <div id="draggable" class="ui-widget-content">
         <p>Drag me around</p>
+        <h1>drag drag</h1>
+    </div>
     </div>
 
 
