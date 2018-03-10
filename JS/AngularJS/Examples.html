@@ -1,0 +1,10 @@
+<!-- ng-app表示这是一个angular应用 -->
+<div ng-app="">
+    <p>在输入框中尝试输入</p>
+    <!-- ng-model将输入域的值绑定到name应用程序变量 -->
+    <p><input type="text" ng-model="name"></p>
+    <!-- ng-bind将name绑架到innerHTML元素中 -->
+    <p ng-bind="name"></p>
+    <!-- {{}}为表达式，和ng-bind的效果类似 -->
+    <p>{{name}}</p>
+</div>

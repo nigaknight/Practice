@@ -1,0 +1,17 @@
+<div ng-app="" ng-init="names=['JOB','BOB','Jane']">
+    <p>使用ng-repeat来遍历数组</p>
+    <ul>
+        <li ng-repeat="x in names">
+            {{x}}
+        </li>
+    </ul>
+</div>
+
+<div ng-app="" ng-init="names=[{name:'JOB',country:'Norway'},{name:'BOB',country:'Japan'},{name:'Jane',country:'China'}]">
+    <p>使用ng-repeat循环对象数组</p>
+    <ul>
+        <li ng-repeat="x in names">
+            {{x.name+','+x.country}}
+        </li>
+    </ul>
+</div>
