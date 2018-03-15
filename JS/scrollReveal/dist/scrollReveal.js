@@ -1,3 +1,14 @@
+
+(function(root, factory) {
+  if (typeof define === 'function' && define.amd) {
+    define(factory);
+  } else if (typeof exports === 'object') {
+    module.exports = factory(require, exports, module);
+  } else {
+    root.scrollReveal = factory();
+  }
+}(this, function(require, exports, module) {
+
 /*
                        _ _ _____                      _   _
                       | | |  __ \                    | | (_)
@@ -16,31 +27,32 @@
  * Licensed under the MIT license
  * http://www.opensource.org/licenses/mit-license.php
  */
-//定义一个scrollReveal事件和它的响应函数（匿名函数）
+
 window.scrollReveal = (function( window ) {
-  //?
-  'use strict';
-  //声明四个变量
-  var _requestAnimFrame, extend, handler, self;
-  //定义函数scrollReveal()
+
+  'use strict'
+
+  var _requestAnimFrame
+    , extend
+    , handler
+    , self
+
   function scrollReveal( config ) {
-      //定义self对象的某些属性
-      self         = this;
-      self.elems   = {};
-      self.serial  = 1;
-      self.blocked = false;
-      self.config  = extend( self.defaults, config );
 
-      if ( self.isMobile() && !self.config.mobile ) return;
-      //document.addEventListener(event, function, useCapture),用于向文档添加事件句柄
-      //event描述事件名称的字符串。
-      //function描述了事件触发后执行的函数
-      window.addEventListener( 'scroll', handler, false );
-      window.addEventListener( 'resize', handler, false );
+      self         = this
+      self.elems   = {}
+      self.serial  = 1
+      self.blocked = false
+      self.config  = extend( self.defaults, config )
 
-      self.init();
+      if ( self.isMobile() && !self.config.mobile ) return
+
+      window.addEventListener( 'scroll', handler, false )
+      window.addEventListener( 'resize', handler, false )
+
+      self.init()
   }
-  //scrollReveal的原型对象,所有不变的属性和方法都可以写在这里面(就是一种继承)
+
   scrollReveal.prototype = {
 
     defaults: {
@@ -76,12 +88,14 @@ window.scrollReveal = (function( window ) {
 
     init: function() {
 
-      var id, elem, query;
+      var id
+        , elem
+        , query
 
       query = Array.prototype.slice.call( self.config.viewport.querySelectorAll( '[data-sr]' ) )
       query.forEach(function ( el ) {
 
-        id = self.serial++;
+        id = self.serial++
 
         /**
          * If no data-sr-id attribute is found, begin assembling
@@ -89,29 +103,29 @@ window.scrollReveal = (function( window ) {
          */
         if ( !el.getAttribute( 'data-sr-id' ) ) {
 
-          el.setAttribute( 'data-sr-id', id );
+          el.setAttribute( 'data-sr-id', id )
 
-          elem        = self.elems[ id ] = { domEl: el };
-          elem.config = self.configFactory( elem );
-          elem.styles = self.styleFactory( elem );
-          elem.seen   = false;
+          elem        = self.elems[ id ] = { domEl: el }
+          elem.config = self.configFactory( elem )
+          elem.styles = self.styleFactory( elem )
+          elem.seen   = false
         }
 
         /**
          * Everything is setup, so add the initial styles.
          */
-        el.setAttribute( 'style', elem.styles.inline + elem.styles.initial );
+        el.setAttribute( 'style', elem.styles.inline + elem.styles.initial )
 
-        return;
-      });
+        return
+      })
 
-      self.scrolled = self.scrollY();
-      self.animate( true );
+      self.scrolled = self.scrollY()
+      self.animate( true )
     },
 
     animate: function( flag ) {
 
-      var elem;
+      var elem
 
       for ( var id in self.elems ) {
 
@@ -122,8 +136,8 @@ window.scrollReveal = (function( window ) {
          */
         if ( elem.domEl.getAttribute( 'data-sr-complete' ) ) {
 
-          delete self.elems[ id ];
-          continue;
+          delete self.elems[ id ]
+          continue
         }
 
         /**
@@ -131,21 +145,30 @@ window.scrollReveal = (function( window ) {
          */
         if ( self.isElemInViewport( elem ) ) {
 
-          if ( self.config.delay == 'always'|| ( self.config.delay == 'onload' && flag )|| ( self.config.delay == 'once' && !elem.seen ) ) {
+          if ( self.config.delay == 'always'
+          || ( self.config.delay == 'onload' && flag )
+          || ( self.config.delay == 'once' && !elem.seen ) ) {
 
             elem.domEl.setAttribute( 'style',
 
-                elem.styles.inline+ elem.styles.target + elem.styles.transition);
+                elem.styles.inline
+              + elem.styles.target
+              + elem.styles.transition
+            )
 
-            elem.seen = true;
+            elem.seen = true
 
           } else {
 
             elem.domEl.setAttribute( 'style',
 
-                elem.styles.inline+ elem.styles.target + elem.styles.reset
-            );
+                elem.styles.inline
+              + elem.styles.target
+              + elem.styles.reset
+            )
           }
+
+          if ( self.config.delay == 'once' )
 
           /**
            * Reset is disabled for this element, so lets restore the style attribute
@@ -158,17 +181,17 @@ window.scrollReveal = (function( window ) {
               /**
                * Reset inline styles and fire callback.
                */
-              elem.domEl.setAttribute( 'style', elem.styles.inline );
-              elem.domEl.setAttribute( 'data-sr-complete', true );
-              elem.config.complete( elem.docEl );
+              elem.domEl.setAttribute( 'style', elem.styles.inline )
+              elem.domEl.setAttribute( 'data-sr-complete', true )
+              elem.config.complete( elem.docEl )
               /**
                * Reveal animation complete.
                */
 
-            }, elem.styles.duration );
+            }, elem.styles.duration )
           }
 
-          continue;
+          continue
 
         }
 
@@ -181,15 +204,17 @@ window.scrollReveal = (function( window ) {
 
             elem.domEl.setAttribute( 'style',
 
-                elem.styles.inline+ elem.styles.initial+ elem.styles.reset
-            );
+                elem.styles.inline
+              + elem.styles.initial
+              + elem.styles.reset
+            )
           }
 
           continue
         }
       }
 
-      self.blocked = false;
+      self.blocked = false
     },
 
     configFactory: function( elem ) {
@@ -516,7 +541,7 @@ window.scrollReveal = (function( window ) {
   extend = function( a, b ) {
 
     for ( var key in b ) {
-    //对象实例的hasOwnProperty方法返回一个布尔值，用于判断某个属性定义在对象自身，还是定义在原型链上。
+
       if ( b.hasOwnProperty( key ) ) {
 
         a[ key ] = b[ key ]
@@ -544,3 +569,7 @@ window.scrollReveal = (function( window ) {
   return scrollReveal
 
 })( window )
+
+return scrollReveal;
+
+}));
