@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="main.css">
+</head>
+<body>
+	<!-- 在 HTML 中，<input> 标签没有结束标签。accept规定通过文件上传来提交的文件的类型(只针对type="file")。multiple可接受多个值的文件上传-->
+	<input type="file" id="file" accept="audio/mp3,audio/ogg" multiple>
+	<!-- <article> 标签表示页面中与上下文不相关的独立的内容部分 -->
+	<article id="music-player">
+		<!-- <audio> 标签是 HTML5 提供的用来播放音频文件的。 -->
+		<audio id="player">
+		</audio>
+		<!-- <section> 标签表示文档中的一个独立部分 -->
+		<section id="music-content">
+			<div id="album-picture">
+				<img src="raw/1.jpg" id="picture">
+			</div>
+			 <!-- title 属性设置或返回元素的标题。<i> 标签中的文本显示为斜体，代表一定范围的文本具有特别的语义。 -->
+			<span id="add-music" title="添加音乐"><i class="fa fa-upload" aria-hidden="true"></i></span>
+
+			<div>
+				<h3 id="music-title">Welcome to you!</h3>
+				<p id="music-singer">Have a good time!</p>
+			</div>
+
+			<div id="music-control">
+				<button id="music-stop">
+					<i class="fa fa-play" aria-hidden="true" id="control-icon"></i>
+				</button>
+
+				<button id="music-pre" title="上一首">
+					<i class="fa fa-fast-backward" aria-hidden="true"></i>
+				</button>
+
+				<button id="music-next" title="下一首">
+					<i class="fa fa-fast-forward" aria-hidden="true"></i>
+				</button>
+
+				<div id="sound-icon">					
+					<i class="fa fa-volume-up" aria-hidden="true" id="volume"></i>
+					<i class="fa fa-minus-circle" aria-hidden="true" id="volume-down" title="降低"></i>
+					<progress value="10" max="10" id="music-sound"></progress>
+					<i class="fa fa-plus-circle" aria-hidden="true" id="volume-up" title="提高"></i>
+				</div>
+			</div>
+		</section>
+		<!-- <aside> 标签为语义化标签。<aside> 标签定义<article> 标签外的内容。 -->
+		<aside>
+			<div><progress value="0" max="100" id="music-progress"></progress></div>
+			<span id="current-time">0:00</span><span id="duration">/0:00</span>
+			<img src="raw/loop.png" id="play-style-loop" title="顺序播放" class="">	
+			<img src="raw/random.png" id="play-style-random" title="随机播放" class="hidden">	
+		</aside>
+	</article>
+
+	<article id="music-list">
+		<ul id="musics"></ul>
+	</article>
+
+	<script src="app.js"></script>
+</body>
+</html>

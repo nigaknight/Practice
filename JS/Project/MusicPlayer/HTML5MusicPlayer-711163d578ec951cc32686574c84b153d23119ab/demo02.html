@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>W3Cschool(w3cschool.cn)</title>
+</head>
+
+<body>
+
+    <audio controls id="player">
+        <source type="audio/mp3"> 
+    </audio>
+    <button id="play">
+    </button>
+    <p id="text">no click</p>
+    <script>
+        var player = document.getElementById("player");
+        var play = document.getElementById("play");
+        var text2 = document.getElementById("text");
+        play.addEventListener("click", function () {
+            player.src = "raw/fly.mp3";
+            text2.innerHTML = "click";
+            alert("click!");
+        })
+    </script>
+
+</body>
+
+</html>
