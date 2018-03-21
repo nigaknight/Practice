@@ -1,6 +1,7 @@
 var musicControl = document.getElementById("music-stop");
 var player = document.getElementById("player");
 var fileElement = document.getElementById("file");
+addMusicElement = document.getElementById("add-music");
 musicControl.addEventListener("click", function () {
     if (player.paused) {
         player.play();
@@ -17,3 +18,6 @@ function getURL() {
     player.src = url;
     player.play();
 }
+addMusicElement.addEventListener("click", function (event) {
+    fileElement.click();
+});
