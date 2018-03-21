@@ -1,0 +1,34 @@
+/* 样例 */
+h1{
+    color:blue;
+    font-size:12px;
+}
+/* 表示颜色的几种方式 */
+h1{
+    color:red;
+}
+h1{
+    color:#ff0000;
+}
+h1{
+    color:#f00;
+}
+h1{
+    color:rgb(255,0,0);
+}
+h1{
+    color:rgb(100%,0%,0%);
+}
+/* id选择器 */
+#para1{
+    text-align: center;
+    color:red;
+}
+/* class选择器 */
+.center{
+    text-align:center;
+}
+/* 对特定html元素设置css */
+p.center{
+    text-align: center;
+}

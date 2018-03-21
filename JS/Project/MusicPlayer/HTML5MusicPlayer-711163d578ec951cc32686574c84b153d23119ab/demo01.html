@@ -3,19 +3,32 @@
 <head>
     <meta charset="utf-8" />
     <title>Page Title</title>
-    <script src="demo01.js" defer>
-    </script>
+    <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="demo01.css">
+    <script src="demo01.js" defer></script>
 </head>
 <body>
-    <input type="file" id="file">
+    <article id="music-player">
+         <input type="file" id="file">
     <audio id="player">
         <source type="audio/mp3" src="">
     </audio>
-    <div id="music-control">
-        <button id="music-stop"></button>
-        <button id="music-pre"></button>
-        <button id="music-back"></button>
-    </div>
-    
+    <section id="music-content">
+        <div id="music-control">
+                <button id="music-stop">
+                <!-- aria-hidden这个是用于屏幕阅读器的，帮助残障人士更好的访问网站。 -->
+                    <i class="fa fa-play" aria-hidden="true" id="control-icon"></i>
+                </button>
+                    
+                <button id="music-pre">
+                    <i class="fa fa-fast-backward"></i>
+                </button>
+                <button id="music-next">
+                    <i class="fa fa-fast-forward"></i>
+                </button>
+                <i id="add-music" class="fa fa-upload"></i>
+        </div>
+    </section>  
+    </article>
 </body>
 </html>
