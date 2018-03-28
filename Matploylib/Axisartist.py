@@ -1,12 +1,18 @@
 # Imports
 import numpy as np
 import matplotlib.pyplot as plt
-
+import mpl_toolkits.axisartist as AA
 
 # Creat a new figure of size 10x6 points ,using 100 pots per inch
-plt.figure(figsize=(10, 6), dpi=80)
+fig = plt.figure(figsize=(10, 6), dpi=80)
 # Creat a new subplot from a grid of 1x1
-plt.subplot(111)
+# 使用Axes来创建axisartist图像
+ax = AA.Axes(fig, [0.1, 0.1, 0.8, 0.8])
+fig.add_axes(ax)
+ax.axis["right"].set_visible(False)
+ax.axis["top"].set_visible(False)
+ax.axis['bottom'].set_axisline_style('->', size=1.5)
+
 
 X = np.linspace(-np.pi, np.pi, 256, endpoint=True)
 C, S = np.cos(X), np.sin(X)
@@ -24,13 +30,9 @@ plt.xticks([-np.pi, -np.pi / 2, 0, np.pi / 2, np.pi],
 plt.ylim(C.min() * 1.1, C.max() * 1.1)
 # Set y ticks
 plt.yticks([-1, 0, 1], [r'$-1$', r'$0$', r'$+1$'])
-ax = plt.gca()
-ax.spines['right'].set_color('none')
-ax.spines['top'].set_color('none')
+
 ax.xaxis.set_ticks_position('bottom')
-ax.spines['bottom'].set_position(('data', 0))
 ax.yaxis.set_ticks_position('left')
-ax.spines['left'].set_position(('data', 0))
 t = 2 * np.pi / 3
 plt.plot([t, t], [0, np.cos(t)], color="blue", linestyle='--', linewidth=1.5)
 # scatter() 标记点

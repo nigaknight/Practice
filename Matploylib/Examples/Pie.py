@@ -7,7 +7,7 @@ quants = []
 
 # Read data
 # 在 try 块中获取资源，然后在 finally 块中释放资源是一种常见的模式。因此，还有一个with 语句使得这一过程可以以一种干净的姿态得以完成。
-with open('F:\Code\Practice\Matploylib\Examples\major_country_gdp.txt',
+with open('major_country_gdp.txt',
           'r') as f:
     # str.split()将字符串中的空格隔开的字符分开来为几个字符串
     for line in f:
