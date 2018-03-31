@@ -1,0 +1,51 @@
+.hero{
+    text-align:center;
+}
+
+.logo{
+    display:inline;
+    position: relative;
+}
+
+.title{
+    display:inline;
+    font-size:64px;
+    color:white;
+    position: relative;
+    left:30px;
+}
+
+body{
+    background-color:#1a2434;
+}
+
+.intro{
+    color:gray;
+    font-size:25px;
+}
+
+.stars{
+    display:inline;
+    position: relative;
+    color:white;
+    border:1px solid;
+    border-color:gray;
+
+}
+
+.stars .icon{
+    fill:yellow;
+}
+
+.link{
+    display:inline;
+    position: relative;
+    color:white;
+    text-decoration:none;
+    border:1px solid;
+    border-color:gray;
+}
+
+.link .icon{
+    fill:white;
+}
