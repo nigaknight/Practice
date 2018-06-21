@@ -30,12 +30,12 @@ int main(){
 void iStack::pop(int &top_value){
     if(empty())
         throw popOnEmpty();
-    top_value=_stack[--_top];//这里--在前面，所以实际--top表达式的值为栈顶值，将栈顶值弹出后，栈顶位置-1
+    top_value=_stack[--_top];//这里--在前面，所以实际--top表达式的值为栈中元素个数减1，赋给弹出元素的值为栈顶值
     cout<<"iStack::pop():"<<top_value<<endl;
 }
 void iStack::push(int value){
     if(full())
         throw pushOnFull();
-    _stack[_top++]=value;//这里++在后面，将栈顶位置+1后，赋给其压进来的值
+    _stack[_top++]=value;//这里++在后面，top++表达式的值为_top本身，_stack[_top-1]为栈顶值，那么_stack[_top]为栈顶加1的值，之后_top因为元素个数增加而后置加1了
 }
     
