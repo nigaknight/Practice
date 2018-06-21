@@ -13,6 +13,7 @@ int ia[10];
 
 //下面程序是将vector的元素通过下标操作符一一赋值给内置数组的元素
 void simple_example(){
+    
     const int elem_size=10;
     vector<int> ivec(elem_size);
     int ia[elem_size];
